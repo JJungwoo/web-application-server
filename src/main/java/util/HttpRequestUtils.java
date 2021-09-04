@@ -32,6 +32,10 @@ public class HttpRequestUtils {
         }
 
         String[] tokens = values.split(separator);
+        System.out.println("parseValues!");
+        for(String i : tokens) {
+            System.out.println(i);
+        }
         return Arrays.stream(tokens).map(t -> getKeyValue(t, "=")).filter(p -> p != null)
                 .collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));
     }
